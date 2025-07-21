@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HBD teh Rifdah</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        font-family: sans-serif;
+        overflow: hidden;
+      }
+
+      .card-background {
+        background-image: url("download (22).jpeg");
+        background-size: cover;
+        background-position: center;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .slider-wrapper {
+        width: 100vw;
+        overflow: hidden;
+      }
+
+      .slider-container {
+        display: flex;
+        width: 700vw; /* ubah dari 600vw */
+        transition: transform 0.6s ease;
+      }
+
+      .slide {
+        position: relative;
+        width: 100vw;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+
+      .greeting-card {
+        background: rgba(255, 255, 255, 0.9);
+        padding: 30px 40px;
+        border-radius: 16px;
+        box-shadow: 0 4px 24px rgba(13, 174, 238, 0.2);
+        text-align: center;
+        max-width: 400px;
+        width: 90vw;
+        box-sizing: border-box;
+        position: relative;
+      }
+
+      .greeting-card h1 {
+        margin: 12px 0 8px;
+        font-size: 1.7em;
+        color: #13729e;
+      }
+
+      .greeting-card p {
+        font-size: 1.1em;
+        color: #555;
+      }
+
+      .gif-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 12px;
+      }
+
+      .arrow-btn {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 2.2em;
+        color: #00bfff;
+        background: rgba(255, 255, 255, 0.7);
+        border: none;
+        cursor: pointer;
+        padding: 6px 12px;
+        border-radius: 50%;
+        z-index: 5;
+      }
+
+      .arrow-left {
+        left: 10px;
+      }
+      .arrow-right {
+        right: 10px;
+      }
+
+      @media (max-width: 600px) {
+        .greeting-card {
+          padding: 20px 10px;
+        }
+        .greeting-card h1 {
+          font-size: 1.4em;
+        }
+        .greeting-card p {
+          font-size: 1em;
+        }
+        .arrow-btn {
+          font-size: 1.4em;
+          padding: 4px 8px;
+        }
+        .arrow-left {
+          left: 5px;
+        }
+        .arrow-right {
+          right: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Layar pembuka -->
+    <div
+      id="landing"
+      style="
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+      "
+    >
+      <button
+        onclick="startCard()"
+        style="
+          font-size: 1.5rem;
+          padding: 12px 24px;
+          background: #00bfff;
+          color: #fff;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+        "
+      >
+        Buka Kartu Ucapan 🎉
+      </button>
+    </div>
+
+    <!-- Musik -->
+    <audio id="bgmusic" loop>
+      <source src="thnh_nabi_7120371263280827675.mp3" type="audio/mpeg" />
+    </audio>
+
+    <div class="card-background">
+      <div class="slider-wrapper">
+        <div id="slider" class="slider-container">
+          <!-- Semua slide -->
+          <div class="slide">
+            <button class="arrow-btn arrow-right" onclick="nextSlide()">
+              ›
+            </button>
+            <div class="greeting-card">
+              <div class="gif-wrapper">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="15202636509398621190"
+                  data-share-method="host"
+                  data-aspect-ratio="1"
+                  data-width="180px"
+                ></div>
+              </div>
+              <h1>Selamat ulang tahun, Teh Rifdah!🎉</h1>
+              <p>Selamat menua kepada Ratu ke-2 yang Paling cantik👑😘</p>
+              <p>Ratu ke-1 yang paling cantik ttp adee ya🤪</p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <button class="arrow-btn arrow-left" onclick="prevSlide()">
+              ‹
+            </button>
+            <button class="arrow-btn arrow-right" onclick="nextSlide()">
+              ›
+            </button>
+            <div class="greeting-card">
+              <div class="gif-wrapper">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="14105316"
+                  data-share-method="host"
+                  data-aspect-ratio="1.23333"
+                  data-width="180px"
+                ></div>
+              </div>
+              <h1>Ciee yang bentar lagi mau KKN…</h1>
+              <p>
+                tapi sayang padahal 1 hari lagi mau kkn nya, jadi ga dirayain
+                disana, tapi tenang aja teh ada adee yang cantik siap
+                menghibur🤣
+              </p>
+              <p>
+                Nanti pas KKN jangan kangen sama masakan adek yaw… <br>soalnya masakan adee emang
+                gak ada gantinya! wkwk 🍳💅
+              </p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <button class="arrow-btn arrow-left" onclick="prevSlide()">
+              ‹
+            </button>
+            <button class="arrow-btn arrow-right" onclick="nextSlide()">
+              ›
+            </button>
+            <div class="greeting-card">
+              <div class="gif-wrapper">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="4749735362582652561"
+                  data-share-method="host"
+                  data-aspect-ratio="1.2"
+                  data-width="180px"
+                ></div>
+              </div>
+              <h1>Buat kakak paling garang sedunia…</h1>
+              <p>
+                Sebenernya malu bilang ini...<br />adee bangga punya kakak kaya
+                tth makasih udah jadi kakak terbaikk, dan jadi motifasi terbaik
+                adee🤧
+              </p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <button class="arrow-btn arrow-left" onclick="prevSlide()">
+              ‹
+            </button>
+            <button class="arrow-btn arrow-right" onclick="nextSlide()">
+              ›
+            </button>
+            <div class="greeting-card">
+              <div class="gif-wrapper">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="18039319"
+                  data-share-method="host"
+                  data-aspect-ratio="1.28514"
+                  data-width="180px"
+                ></div>
+              </div>
+              <p>
+                meskipun kadang tth itu galak, bawel, kadang aneh juga🙄
+                <br />tapi yaa lumayanlah tth baik banget wkwk😂<br />Nanti KKN
+                jangan lupa ya oleh olehnya😋
+              </p>
+            </div>
+          </div>
+
+          <div class="slide">
+            <button class="arrow-btn arrow-left" onclick="prevSlide()">
+              ‹
+            </button>
+            <button class="arrow-btn arrow-right" onclick="nextSlide()">
+              ›
+            </button>
+            <div class="greeting-card">
+              <div class="gif-wrapper">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="2073275963562890658"
+                  data-share-method="host"
+                  data-aspect-ratio="1.06667"
+                  data-width="180px"
+                ></div>
+              </div>
+              <h1>🤍🎈</h1>
+              <p>
+                maaf ya belum bisa sempurna jadi adik tth, makasih udah jadi tth
+                yang hebat😚
+              </p>
+              <p>
+                nanti kalo udah beres kkn kita berangkat kuliah bareng lagi ya
+                tehh hehe!
+              </p>
+            </div>
+          </div>
+
+        <div class="slide">
+        <button class="arrow-btn arrow-left" onclick="prevSlide()">‹</button>
+        <button class="arrow-btn arrow-right" onclick="nextSlide()">›</button>
+        <div class="greeting-card">
+            <div class="gif-wrapper">
+            <div
+                class="tenor-gif-embed"
+                data-postid="26525351"
+                data-share-method="host"
+                data-aspect-ratio="1.18519"
+                data-width="180px"
+            ></div>
+            </div>
+            <h1>Doa 💙💐</h1>
+            <p>
+            Happy birthday, teh! 🎂<br />
+            Semoga Allah selalu melimpahkan kesehatan, keberkahan dan tetap
+            istiqomah di jln allah. Semoga KKNnya di lancarin, temen" tth
+            baik, dan warga disana sayang tth…<br />semoga kuliahnya
+            dilacarin sampe lulus nanti, lulus dengan nilai terbaik,
+            dan semoga tth bisa jadi orang sukses yang bermanfaat bagi orang
+            lain. Aamiin 🤲
+            </p>
+            <p>Love you always, teh Rifdah 🌟</p>
+        </div>
+        </div>
+          <div class="slide">
+            <button class="arrow-btn arrow-left" onclick="prevSlide()">
+              ‹
+            </button>
+            <div class="greeting-card">
+              <div class="gif-wrapper">
+                <div
+                  class="tenor-gif-embed"
+                  data-postid="7025297898125970342"
+                  data-share-method="host"
+                  data-aspect-ratio="1"
+                  data-width="180px"
+                ></div>
+              </div>
+              <h1>🎁 Hadiah Spesial!</h1>
+              <p>
+                Hehe hadiahnya soft file dulu ya teh hard filenya nanti nyusul🤭, ada sedikit hadiah kejutan buat Teh Rifdah! <br>
+                Klik tombol di bawah untuk membukanya yaa 💙
+              </p>
+              <a
+                href="https://rasyaanabilah.github.io/bunga/"
+                target="_blank"
+                style="
+                  display: inline-block;
+                  margin-top: 16px;
+                  padding: 10px 24px;
+                  background: #00bfff;
+                  color: #fff;
+                  border-radius: 8px;
+                  text-decoration: none;
+                  font-size: 1.1em;
+                  font-weight: bold;
+                  box-shadow: 0 2px 8px rgba(0, 191, 255, 0.15);
+                "
+                >Click here👈</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      type="text/javascript"
+      async
+      src="https://tenor.com/embed.js"
+    ></script>
+    <script>
+      let currentSlide = 0;
+      const totalSlides = 7;
+      const slider = document.getElementById("slider");
+
+      function updateSlider() {
+        slider.style.transform = `translateX(-${currentSlide * 100}vw)`;
+      }
+
+      function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+          currentSlide++;
+          updateSlider();
+        }
+      }
+
+      function prevSlide() {
+        if (currentSlide > 0) {
+          currentSlide--;
+          updateSlider();
+        }
+      }
+
+      function startCard() {
+        document.getElementById("landing").style.display = "none";
+        document.getElementById("bgmusic").play();
+      }
+    </script>
+  </body>
+</html>
